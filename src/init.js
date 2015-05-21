@@ -21,13 +21,34 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    var dancer = new BananaDancer(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
+    if (this.id === "Pokemon") {
+      var dancer = new BananaDancer(
+        $("body").height() * Math.random() * 0.95,
+        $("body").width() * Math.random() * 0.95,
+        Math.random() * 1000
+      );
+    }
+    if(this.id ==="BlinkyDancer") {
+      var dancer = new BlinkyDancer(
+        $("body").height() * Math.random() * 0.95,
+        $("body").width() * Math.random() * 0.95,
+        Math.random() * 1000
+      );
+    }
+    if(this.id ==="RainbowDancer") {
+      var dancer = new RainbowDancer(
+        $("body").height() * Math.random() * 0.95,
+        $("body").width() * Math.random() * 0.95,
+        Math.random() * 1000
+      );
+    }
     $('body').append(dancer.$node);
   });
+
+  $(".Lineup").on("click", function(event){
+    $(".dancer").animate({left: '200px'}, 2000);
+    $(".gif").animate({left: '1400px'}, 2000);
+  });
+
 });
 

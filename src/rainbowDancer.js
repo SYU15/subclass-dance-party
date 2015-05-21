@@ -11,7 +11,6 @@ RainbowDancer.prototype.step = function(){
   this.oldStep();
   //console.log(this);
   var newColor = this.color[Math.floor(Math.random()*this.color.length)];
-  console.log(newColor);
 //jquery function, changes css color at every step call
   this.$node.css({border:"10px solid "+ newColor});
 };
