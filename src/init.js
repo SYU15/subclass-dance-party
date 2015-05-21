@@ -42,13 +42,20 @@ $(document).ready(function(){
         Math.random() * 1000
       );
     }
+    dancers.push(dancer);
     $('body').append(dancer.$node);
   });
-
+//if we have time, make lineup temporary
   $(".Lineup").on("click", function(event){
     $(".dancer").animate({left: '200px'}, 2000);
     $(".gif").animate({left: '1400px'}, 2000);
   });
-
+  $(".Dosido").on("click", function(){
+    for(var i = 0; i < dancers.length; i+=2){
+      if(dancers[i+1]) {
+        doSiDo(dancers[i], dancers[i+1]);
+      }
+    }
+  });
 });
 
