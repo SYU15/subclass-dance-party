@@ -57,5 +57,13 @@ $(document).ready(function(){
       }
     }
   });
+  $(document).on("mouseover",".gif", function(){
+    $('body').css({cursor:'url(src/pokeball.png), auto'});
+  }).on("mouseleave",".gif", function(){
+    $('body').css({cursor:'auto'});
+  }).on("click", ".gif", function(){
+    $('body').css({cursor:'auto'});
+    $(this).animate({height: "0px", width: "0px"}, 1000);
+  });
 });
 
