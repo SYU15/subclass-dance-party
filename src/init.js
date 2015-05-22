@@ -47,8 +47,15 @@ $(document).ready(function(){
   });
 //if we have time, make lineup temporary
   $(".Lineup").on("click", function(event){
-    $(".dancer").animate({left: '200px'}, 2000);
-    $(".gif").animate({left: '1400px'}, 2000);
+    $(".dancer").animate({left: ($('body').width()*.25).toString()}, 2000);
+    $(".gif").animate({left: ($('body').width()*.75).toString()}, 2000);
+    setTimeout(function(){
+      for(var i = 0; i < dancers.length; i++) {
+        var top = dancers[i].top;
+        var left = dancers[i].left;
+        dancers[i].$node.animate({left: left, top: top}, 2000);
+      }
+    }, 5000);
   });
   $(".Dosido").on("click", function(){
     for(var i = 0; i < dancers.length; i+=2){
