@@ -1,5 +1,6 @@
 $(document).ready(function(){
   window.dancers = [];
+  window.dancing = false;
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -47,9 +48,11 @@ $(document).ready(function(){
   });
 //if we have time, make lineup temporary
   $(".Lineup").on("click", function(event){
+    dancing = true;
     $(".dancer").animate({left: ($('body').width()*.25).toString()}, 2000);
     $(".gif").animate({left: ($('body').width()*.75).toString()}, 2000);
     setTimeout(function(){
+      dancing = false;
       for(var i = 0; i < dancers.length; i++) {
         var top = dancers[i].top;
         var left = dancers[i].left;
@@ -58,6 +61,7 @@ $(document).ready(function(){
     }, 5000);
   });
   $(".Dosido").on("click", function(){
+    dancing = true;
     for(var i = 0; i < dancers.length; i+=2){
       if(dancers[i+1]) {
         doSiDo(dancers[i], dancers[i+1]);

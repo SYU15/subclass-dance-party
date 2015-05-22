@@ -1,6 +1,6 @@
 // Creates and returns a new dancer object that can step
 var Dancer = function(top, left, timeBetweenSteps){
-
+  this.whichWay = false;
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
@@ -22,6 +22,16 @@ var Dancer = function(top, left, timeBetweenSteps){
 Dancer.prototype.step = function(){
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
+  // if(!dancing) {
+  //   if(this.whichWay) {
+  //     this.$node.animate({left: this.left + 30}, this.timeBetweenSteps);
+  //     this.whichWay = false;
+  //   }
+  //   if(!this.whichWay) {
+  //     this.$node.animate({left: this.left - 30}, this.timeBetweenSteps);
+  //     this.whichWay = true;
+  //   }
+  // }
   var that = this;
   setTimeout(function() {
     that.step();
